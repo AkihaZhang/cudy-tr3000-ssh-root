@@ -9,7 +9,7 @@ Cudy TR3000 256MB Flash V1.0
 Firmware: 2.4.21-20251009-115734
 ```
 
-默认管理地址按出厂值写：
+出厂默认管理地址是：
 
 ```text
 http://192.168.10.1
@@ -63,13 +63,13 @@ cd cudy-tr3000-ssh-root
 
 ## 步骤 1：临时打开 SSH
 
-后台密码是首次激活路由器时自定义的管理密码。
-
 在电脑终端执行：
 
 ```sh
 python3 cudy_tr3000_openvpn_rce.py --password '你的后台密码' --start-ssh
 ```
+
+把命令里的 `你的后台密码` 换成首次激活时设置的管理密码。
 
 如果路由器不是默认地址，用 `--base` 指定：
 
@@ -87,11 +87,7 @@ python3 cudy_tr3000_openvpn_rce.py --base http://192.168.10.1 --password '你的
 [+] temporary SSH should now be listening on 192.168.10.1:22
 ```
 
-记下这一行后面的值：
-
-```text
-derived root password
-```
+记下 `derived root password:` 后面的那串值。
 
 这是当前设备临时 root 密码。每台设备都不一样，以你终端实际输出为准。
 
@@ -127,7 +123,7 @@ uid=0(root) gid=0(root)
 scp install_persistent_ssh.sh root@192.168.10.1:/tmp/
 ```
 
-这里仍然使用 `derived root password` 作为密码。
+`scp` 提示输入密码时，仍然输入上一步得到的 `derived root password`。
 
 然后执行固化脚本：
 
@@ -147,7 +143,7 @@ Bad password: too weak
 passwd: password for root changed by root
 ```
 
-脚本最后应该输出：
+看到下面输出，说明固化脚本已经跑完：
 
 ```text
 persistent-ssh-ok
@@ -181,11 +177,7 @@ ssh-keygen -R 192.168.10.1
 ssh root@192.168.10.1
 ```
 
-密码输入：
-
-```text
-password
-```
+这次输入脚本临时设置的密码 `password`。
 
 登录后立刻修改 root 密码：
 
@@ -232,11 +224,7 @@ reboot
 ssh root@192.168.10.1
 ```
 
-密码仍然是：
-
-```text
-你刚设置的新 root 密码
-```
+这次输入你刚设置的新 root 密码。
 
 笔者实测普通重启后 SSH 仍然可用。
 

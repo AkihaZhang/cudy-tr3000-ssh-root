@@ -153,7 +153,7 @@ passwd: password for root changed by root
 persistent-ssh-ok
 ```
 
-从这一步开始，root 密码临时变成演示密码：
+脚本执行完成后，root 密码会暂时变为：
 
 ```text
 password

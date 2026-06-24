@@ -43,8 +43,6 @@ http://192.168.10.1
 
 ## 终端截图
 
-截图里的密码、hmac 和设备标识已做脱敏处理。
-
 ![临时打开 SSH](assets/terminal-start-ssh.png)
 
 ![登录 root shell](assets/terminal-root-login.png)

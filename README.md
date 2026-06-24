@@ -41,9 +41,17 @@ http://192.168.10.1
 - Cudy 官方恢复教程：<https://www.cudy.com/zh-cn/blogs/faq/how-to-recovery-the-cudy-router-from-openwrt-firmware-to-cudy-official-firmware>
 - TR3000 256MB Flash V1.0 官方固件：<https://d1jvyy13vm72kv.cloudfront.net/device/upgrade/m_upgrade_TR3000_256MB_Flash-R103-2.4.21-20251009-115734-sysupgrade_44834.zip>
 
-## 效果截图
+## 终端截图
 
-![root shell](assets/root-shell.png)
+截图里的密码、hmac 和设备标识已做脱敏处理。
+
+![临时打开 SSH](assets/terminal-start-ssh.png)
+
+![登录 root shell](assets/terminal-root-login.png)
+
+![固化 SSH](assets/terminal-persistent-ssh.png)
+
+![重启后验证](assets/terminal-reboot-verify.png)
 
 ## 准备
 
